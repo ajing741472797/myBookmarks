@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的导航</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="wrapper" id="mainXXXX"></div> 
+    </main>
+    <footer></footer>
+    <script>
+        var keys = {
+            0: ['q','w','e','r','t','y','u','i','o','p'],//这是简写，hash规范写法：'0':{0:'q',1:'w',2:'e',3:'r',4:'t',5:'y',6:'u',7:'i',8:'o',9:'p',length:10},
+            1: ['a','s','d','f','g','h','j','k','l'],
+            2: ['z','x','c','v','b','n','m'],
+            'length':3
+        }
+        var hash = {
+            q:'qq.com', w:'weibo.com', e:'ele.com', r:'renren.com', t:'tianya.com', y:'youtube.com', u:'uc.com',i:'iqiyi',o:'opera.com',p:undefined,a:'acfun.tv',s:'sohu.com',z:'zhihu.com',b:'baidu.com',m:'meituan.com',
+        }//hash规范写法：'q':'qq.com','w':'weibo.com'......
+
+        //取出存在 localStorage 中的 zzz 对应的 hash
+        var hashInLocalStorage = JSON.parse(localStorage.getItem('zzz') || 'null')
+        if(hashInLocalStorage)
+            hash = hashInLocalStorage
+
+        //遍历 keys，生成 kbd 标签
+        index = 0
+        while(index< keys['length']){//0 1 2
+        divXXXX = document.createElement('div')
+        mainXXXX.appendChild(divXXXX)
+        row = keys[index]  //第一个数组  第二个数组  第三个数组
+        index2 = 0
+        while(index2< row['length']){  //0~9  0~8  0~6
+        kbdXXXX = document.createElement('kbd')
+        kbdXXXX.textContent = row[index2] //定义内容
+        buttonXXXX = document.createElement('button') // 在kbd中加入按钮button
+        buttonXXXX.textContent = '编辑'
+        buttonXXXX.id = row[index2]
+        buttonXXXX.onclick = function(jian){// 监听键盘事件，function()里面可随意命名，如jian
+            //jian['target'] 就是用户点击的元素
+            key = (jian['target']['id'])// q w e r t
+            x = prompt('给我一个网址')// qq.com
+            hash[key] = x // hash变更
+            localStorage.setItem('zzz', JSON.stringify(hash))// 将用户提交的操作存档到localStorage
+            console.log(hash) // 可可省略，用于查询hash
+        }
+        kbdXXXX.appendChild(buttonXXXX)
+        divXXXX.appendChild(kbdXXXX)
+        index2 = index2 + 1
+        }
+         
+        index = index + 1
+        }
+        document.onkeypress = function(jian){ // 监听键盘事件
+            key = jian['key'] // q w e
+            website = hash[key]
+            // location.href = 'http://'+website
+            window.open('http://'+website, '_blank')//在新标签页打开网址，上面的代码是在当前页打开
+        }
+    
+    </script>
+</body>
+</html>
