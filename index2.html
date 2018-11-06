@@ -9,10 +9,8 @@
 </head>
 <body>
     <header></header>
-    <main>
-        <div class="wrapper" id="mainxxx"></div>
-        
-
+    <main>    
+        <div class="wrapper" id="main"></div>
     </main>
     <footer></footer>
     <script>
@@ -26,6 +24,7 @@
             q:'qq.com',
             w:'weibo.com',
             e:'epple.com',
+            b:'baidu.com',
         }
         var hashInlocalStorage = JSON.parse(localStorage.getItem('eee') || 'null')
         if(hashInlocalStorage)
@@ -34,26 +33,31 @@
         index=0
 
         while(index< keys['length']){
-        divxxx = document.createElement('div')
-        mainxxx.appendChild(divxxx)
+        div = document.createElement('div')
+        div.className = 'row'
+        main.appendChild(div)
         row = keys[index]
 
         index2=0
         while(index2< row['length']){
-        kbdxxx = document.createElement('kbd')
-        kbdxxx.textContent = row[index2]
-        buttonxxx = document.createElement('button')
-        buttonxxx.textContent = "编辑"
-        buttonxxx.id = row[index2]
-        buttonxxx.onclick = function(aaa){
+        kbd = document.createElement('kbd')
+        kbd.textContent = row[index2]
+        kbd.className = 'key'
+        button = document.createElement('button')
+        button.textContent = "编辑"
+        button.id = row[index2]
+        img = document.createElement('img')
+        img.src = 'http://'+ hash[row[index2]] + '/favicon.ico'//网站logo路径
+        button.onclick = function(aaa){
             key = (aaa['target']['id'])
             x = prompt("给我一个网址")
             hash[key] = x
             localStorage.setItem('eee', JSON.stringify(hash))
 
         }
-        kbdxxx.appendChild(buttonxxx)
-        divxxx.appendChild(kbdxxx)
+        kbd.appendChild(img)
+        kbd.appendChild(button)
+        div.appendChild(kbd)
         index2 = index2 + 1
         }
 
