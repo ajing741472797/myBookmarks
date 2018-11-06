@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding:0;
+}
+a{
+    text-decoration: none;
+}
+
+#mainxxx{
+    text-align: center;
+}
+.wrapper{
+    margin-top: 200px;
+}
+
+kbd{
+    border: 1px solid red;
+    width: 5em;
+    height: 5em;
+    display: inline-block;
+    text-transform: uppercase;
+    position: relative;
+    line-height: 5em; /*内联元素垂直居中,设置内联元素的行高（line-heigt）和内联元素的父元素的高度（height）相等    */
+    margin-top: 10px;
+ 
+}
+kbd> button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: none;
+}
+kbd:hover > button{
+    display: inline;
+}
