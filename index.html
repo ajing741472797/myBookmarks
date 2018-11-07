@@ -39,7 +39,7 @@
         while(index2< row['length']){  //0~9  0~8  0~6
         kbdXXXX = document.createElement('kbd')
         kbdXXXX.textContent = row[index2] //定义内容
-        buttonXXXX = document.createElement('button') // 在kbd中加入按钮button
+        buttonXXXX = document.createElement('button') 
         buttonXXXX.textContent = '编辑'
         buttonXXXX.id = row[index2]
         buttonXXXX.onclick = function(jian){// 监听键盘事件，function()里面可随意命名，如jian

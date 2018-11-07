@@ -7,7 +7,7 @@ a{
 }
 body{
     height: 100vh;
-    background: grey url(./wall.jpeg) no-repeat center center;
+    background: grey url(./wall13.jpeg) no-repeat center center;
     background-size: cover;
 }
 main{
@@ -37,19 +37,35 @@ kbd{
     height: 5em;
     display: inline-block;
     text-transform: uppercase;
-    position: relative;
-  
- 
+    position: relative; 
+    transition: box-shadow 0.2s;
+}
+kbd:hover{
+    box-shadow: 0px 3px 21px -1px #9f9f9f;
+
 }
 kbd> button{
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 4px;
+    right: 5px;
     display: none;
+    width: 16px;
+    height: 16px;
+    border: none;
+    border-radius: 2px;
+    color: white;
 }
+kbd> button:hover{
+
+    background: #87CEFA;
+
+}
+
 kbd:hover > button{
     display: inline;
 }
+
+
 .key{
     width: 60px;
     height: 50px;
@@ -58,15 +74,28 @@ kbd:hover > button{
     border: none;
     color: #9f9f9f;
     box-shadow: 0px 6px 17px -3px rgba(0,0,0,0.75),0px 0px 0px -1px #ffffff,0px 3px 0px -1px #ffffff;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     font-size: 16px;
     font-family: helvetica;
+    position: relative;
 }
 .row{
     margin: 20px;
 }
 .row .key{
     margin: 0 10px;
+  
 }
+.key .text{
+    position: absolute ;
+    top: 14px;
+    left: 24.5px;
+}
+.key img{
+    width: 16px;
+    height: 16px;
+    position: absolute ;
+    bottom: 4px;
+    left: 8px;
+    border-radius: 2px;  
+}
+ 
