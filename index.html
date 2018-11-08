@@ -55,14 +55,14 @@
                 var button2 = aaa['target']
                 var img2 = button2.previousSibling
                 var key = button2['id']// q w e r t
-                var x = prompt("给我一个网址，如:baidu.com")// qq.com
+                var x = prompt('给键位'+ key +'一个网站地址，如:baidu.com')// qq.com
                 hash[key] = x // hash变更
                 img2.src = 'http://' + x + '/favicon.ico'
 
                 img2.onerror = function (xxx) {//监听错误
                     xxx.target.src = 'https://i.loli.net/2018/05/02/5ae95aee4a6c2.png'
                 }
-                localStorage.setItem('zzz', JSON.stringify(hash))// 将用户提交的操作存档到localStorage
+                localStorage.setItem('zzz', JSON.stringify(hash))// 将用户提交的操作存档到localStorage        
             }
             return button
         }
