@@ -117,8 +117,13 @@
             var key = lalala['key']// q w e
             var website = hash[key]
             // location.href = 'http://'+website
+            if(website === undefined || website === null){
+                return
+            }else{
             window.open('http://'+website, '_blank')//在新标签页打开网址，上面的代码是在当前页打开
+            }
         }
+
      
 
     </script>
