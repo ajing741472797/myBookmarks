@@ -59,7 +59,7 @@
                 hash[key] = x // hash变更
                 img2.src = 'http://' + x + '/favicon.ico'
 
-                img.onerror = function (xxx) {//监听错误
+                img2.onerror = function (xxx) {//监听错误
                     xxx.target.src = 'https://i.loli.net/2018/05/02/5ae95aee4a6c2.png'
                 }
                 localStorage.setItem('zzz', JSON.stringify(hash))// 将用户提交的操作存档到localStorage
