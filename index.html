@@ -62,7 +62,7 @@
                 img.onerror = function (xxx) {//监听错误
                     xxx.target.src = 'https://i.loli.net/2018/05/02/5ae95aee4a6c2.png'
                 }
-                localStorage.setItem('eee', JSON.stringify(hash))// 将用户提交的操作存档到localStorage
+                localStorage.setItem('zzz', JSON.stringify(hash))// 将用户提交的操作存档到localStorage
             }
             return button
         }
@@ -80,7 +80,7 @@
             return img
         }
 
-        function init() {
+        function init(){
                 var keys = {
                 0: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],//这是简写，hash规范写法：'0':{0:'q',1:'w',2:'e',3:'r',4:'t',5:'y',6:'u',7:'i',8:'o',9:'p',length:10},
                 1: ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
@@ -102,13 +102,13 @@
 
             }
             //取出存在 localStorage 中的 zzz 对应的 hash
-            var hashInLocalStorage = getFromLocalStorage('eee')
-            if (hashInLocalStorage) {
+            var hashInLocalStorage = getFromLocalStorage('zzz')
+            if(hashInLocalStorage){
                 hash = hashInLocalStorage
             }
             return {
-                'keys': keys,
-                'hash': hash,
+                "keys": keys,
+                "hash": hash,
             }
         }
         
