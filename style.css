@@ -7,7 +7,7 @@ a{
 }
 body{
     height: 100vh;
-    background: grey url(./image/background.jpeg) no-repeat center center;
+    background: grey url(./image/background1.jpeg) no-repeat center center;
     background-size: cover;
 }
 main{
