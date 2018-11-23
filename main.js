@@ -2,6 +2,8 @@
         var hashA = init()
         var keys = hashA['keys']
         var hash = hashA['hash']
+        var body = document.querySelector("body");
+        var input = document.querySelector("input");
 
 
         //2.生成键盘
@@ -12,7 +14,10 @@
         listenToUser(hash)
 
 
-        //下面是工具函数
+
+
+
+        //下面的工具函数，可以不用看
   
         function getFromLocalStorage(name){
             return JSON.parse(localStorage.getItem(name) || 'null')
@@ -101,7 +106,7 @@
             }
         }
         
-        function generateKeyboard(keys,hush){
+        function generateKeyboard(keys,hash){
             for(var index=0;index< keys['length'];index = index + 1){//0 1 2   用for循环代替while循环
             var div = tag('div')
             div.className = 'row'

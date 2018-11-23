@@ -60,7 +60,7 @@ kbd> button{
 kbd> button:hover{
 
     background: #87CEFA;
-
+    outline:none;
 }
 
 kbd:hover > button{
