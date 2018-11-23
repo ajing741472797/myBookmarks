@@ -39,7 +39,12 @@
                 var img2 = button2.previousSibling
                 var key = button2['id']// q w e r t
                 var x = prompt('给键位'+ key +'一个网站地址，如:baidu.com')// qq.com
-                hash[key] = x // hash变更
+                if(x){
+                    hash[key] = x // hash变更
+                }else{
+                    return hash[key]
+                }
+          
                 img2.src = 'http://' + x + '/favicon.ico'
 
                 img2.onerror = function (xxx) {//监听错误
@@ -48,6 +53,7 @@
                 localStorage.setItem('zzz', JSON.stringify(hash))// 将用户提交的操作存档到localStorage        
             }
             return button
+            
         }
 
         function createImage(domain){
@@ -131,4 +137,4 @@
             window.open('http://'+website, '_blank')//在新标签页打开网址，上面的代码是在当前页打开
             }
         }
-        }
+    }

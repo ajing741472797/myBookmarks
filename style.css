@@ -39,6 +39,7 @@ kbd{
     text-transform: uppercase;
     position: relative; 
     transition: box-shadow 0.2s;
+
 }
 kbd:hover{
     box-shadow: 0px 3px 21px -1px #9f9f9f;
@@ -90,6 +91,7 @@ kbd:hover > button{
     position: absolute ;
     top: 14px;
     left: 24.5px;
+    cursor:default;
 }
 .key img{
     width: 16px;
