@@ -12,6 +12,7 @@
 
         //3.监听用户动作
         listenToUser(hash)
+        listenToUserClick(hash)
 
 
 
@@ -40,6 +41,7 @@
             button.id = id//获取网页favicon（网站图标）
             button.onclick = function (aaa) {// 监听键盘事件，function()里面可随意命名，如aaa
                 //aaa['targrt'就是用户点击的元素]
+                aaa.stopPropagation();
                 var button2 = aaa['target']
                 var img2 = button2.previousSibling
                 var key = button2['id']// q w e r t
@@ -62,15 +64,16 @@
         }
 
         function createImage(domain){
+            console.log('%c [ domain ]-67', 'font-size:13px; background:pink; color:#bf2c9f;', domain)
             var img = tag('img')
             if (domain) {
                 img.src = 'http://' + domain + '/favicon.ico'//网站logo路径
             } else {
                 img.src = '//i.loli.net/2018/05/02/5ae95aee4a6c2.png'
             }
-            img.onerror = function (xxx) {//监听错误
-                xxx.target.src = 'https://i.loli.net/2018/05/02/5ae95aee4a6c2.png'//把错误的图片替换成正确的
-            }
+            // img.onerror = function (xxx) {//监听错误
+            //     xxx.target.src = 'https://i.loli.net/2018/05/02/5ae95aee4a6c2.png'//把错误的图片替换成正确的
+            // }
             return img
         }
 
@@ -82,16 +85,18 @@
                 'length': 3
             }
             var hash = {
-                q: 'www.qq.com',
-                w: 'www.weibo.com',
+                q: 'qq.com',
+                w: 'weibo.com',
                 t: 'taobao.com',
                 z: 'zhihu.com',
                 j: 'jianshu.com',
+                y:'youku.com',
                 i: 'iqiyi.com',
-                b: 'www.baidu.com',
-                p: 'www.pexels.com',
-                v: 'mp.weixin.qq.com',
+                b: 'baidu.com',
+                p: 'pexels.com',
+                v: 'v.qq.com',
                 g: 'github.com',
+                m: 'mgtv.com'
                 //hash规范写法：'q':'qq.com','w':'weibo.com'......
 
             }
@@ -116,7 +121,6 @@
             var row = keys[index]//第一个数组  第二个数组  第三个数组
             for(var index2=0;index2< row['length'];index2 = index2 + 1){//0~9  0~8  0~6
                 var span = createSpan(row[index2])//定义内容
-            
                 var button = createButton(row[index2])
                 
                 var img = createImage(hash[row[index2]])
@@ -143,3 +147,22 @@
             }
         }
     }
+
+    function listenToUserClick(hash){
+       const keys =  document.querySelectorAll('.key')
+       keys.forEach((key) => {
+        key.onclick = function (e) {
+            
+            var website = hash[key.children[0].innerHTML]
+            console.log('%c [ website ]-154', 'font-size:13px; background:pink; color:#bf2c9f;', website)
+            // location.href = 'http://'+website
+            if(website === undefined || website === null){
+                alert('当前按键无标签')
+            }else{
+            window.open('http://'+website, '_blank')//在新标签页打开网址，上面的代码是在当前页打开
+            }
+          }
+
+      });
+
+   }
